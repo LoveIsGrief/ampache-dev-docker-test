@@ -25,9 +25,14 @@ case "${OS}" in
 	echo "Switching to ${OS}"
 	cp "${OS}.Vagrantfile" "Vagrantfile"
 	;;
+    -h|--help)
+	help
+	exit
+	;;
     *)
 	if [[ ! -e Vagrantfile ]] ; then
-	    echo "No OS provided and no Vagrantfile present" > /dev/sterr
+	    echo "No OS provided and no Vagrantfile present" > /dev/stderr
+	    echo
 	    help
 	    exit 1
 	fi
